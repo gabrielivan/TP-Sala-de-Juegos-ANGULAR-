@@ -15,7 +15,7 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
-color: #3E06B0;
+color: #f2f0f7;
 }
 
 .hero-text a {
@@ -32,4 +32,8 @@ cursor: pointer;
 .hero-text a:hover {
 background-color: #555;
 color: white;
+}
+
+.ul{
+    color: white;
 }
