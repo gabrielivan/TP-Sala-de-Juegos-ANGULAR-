@@ -11,3 +11,50 @@ height: 70px;
     transform: translate(-50%, -50%);
     color: #100000;
     }
+
+.mainMenu{
+    text-align: center;
+    color: black;
+}
+
+.divMainMenu{
+    margin: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: aqua;
+}
+
+.spanGames{
+    margin-left: 3%;
+    margin-right: 50%;
+    color: rgb(28, 52, 121);
+}
+
+.spanList{
+    margin-left: 55%;
+    margin-bottom: 6%;
+    margin-top: -18%;
+    color: rgb(28, 52, 121);
+}
+
+.spanSettings{
+    margin-left: 3%;
+    margin-right: 50%;
+    margin-bottom: 10%;
+    color: rgb(28, 52, 121);
+}
+
+.spanPlayers{
+    margin-left: 55%;
+    margin-bottom: 6%;
+    margin-top: -20%;
+    color: rgb(28, 52, 121);
+}
+
+.divGeneral{
+    background-color: lightblue;
+}
+
+.images{
+    margin-right: 12px;
+}
