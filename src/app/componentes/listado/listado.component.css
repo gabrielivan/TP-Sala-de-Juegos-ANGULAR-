@@ -17,12 +17,16 @@
 
 /* Facebook */
 .fa-facebook {
-    background: #3B5998;
+    background: lightgoldenrodyellow;
     color: white;
 }
 
 /* Twitter */
 .fa-twitter {
-    background: #55ACEE;
+    background: lightgoldenrodyellow;
     color: white;
+}
+
+.listContainer{
+    background-color: lightgoldenrodyellow;
 }
