@@ -1,40 +1,74 @@
-<div class="container" >
-    <div class="card">
-      <img class="img-thumbnail"   src="./assets/imagenes/cerebro.jpg" alt="Avatar" style="width:100%">
-      <h1>Velocidad y agilidad aritmética </h1>
-      <p class="title">Juego de agilidad mental</p>
-      <p>UTN FRA </p>
-  
-      <a href="#"><i class="fa fa-dribbble"></i></a> 
-      <a href="#"><i class="fa fa-twitter"></i></a> 
-      <a href="#"><i class="fa fa-linkedin"></i></a> 
-      <a href="#"><i class="fa fa-facebook"></i></a> 
-      <p>           <button class="button"  (click)="Juego('Agilidad')">Jugar</button></p>
-    
-    </div>
-  
-    <div class="card">
-      <img class="img-thumbnail" src="./assets/imagenes/ppt.jpg" alt="Avatar" style="width:100%">
-      <h1>Piedra Papel o Tijera</h1>
-      <p class="title">Juega contra la máquina</p>
-      <p>UTN FRA </p>
-      
-      <a href="#"><i class="fa fa-dribbble"></i></a> 
-      <a href="#"><i class="fa fa-twitter"></i></a> 
-      <a href="#"><i class="fa fa-linkedin"></i></a> 
-      <a href="#"><i class="fa fa-facebook"></i></a> 
-      <p>           <button class="button"  (click)="Juego('PPT')">Jugar</button></p>
-    </div>
-    <div class="card">
-      <img  class="img-thumbnail"  src="./assets/imagenes/adivina.png" alt="Avatar" style="width:100%">
-      <h1>Adivina el número secreto</h1>
-      <p class="title">Juega de estrategia</p>
-      <p>UTN FRA </p>
-      
-      <a href="#"><i class="fa fa-dribbble"></i></a> 
-      <a href="#"><i class="fa fa-twitter"></i></a> 
-      <a href="#"><i class="fa fa-linkedin"></i></a> 
-      <a href="#"><i class="fa fa-facebook"></i></a> 
-      <p>           <button class="button"  (click)="Juego('Adivina')">Jugar</button></p>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<div class="container menuCard">
+  <div class="card">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-lg-3">
+          <img class="brain" src="./assets/imagenes/cerebro.jpg" alt="Avatar">
+        </div>
+        <div class="col-md-9 col-lg-9">
+          <h1>Velocidad y agilidad aritmética </h1>
+          <p class="title">Juego de agilidad mental</p>
+          <p>UTN FRA </p>
+          <div class="divIcons">
+            <a href="#"><i class="fa fa-dribbble icons"></i></a>
+            <a href="#"><i class="fa fa-twitter icons"></i></a>
+            <a href="#"><i class="fa fa-linkedin icons"></i></a>
+            <a href="#"><i class="fa fa-facebook icons"></i></a>
+          </div>
+          <p>
+            <button class="btn btn-primary buttonMenuGame" (click)="Juego('Agilidad')">Jugar</button>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="card">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-lg-3">
+          <img class="rps" src="./assets/imagenes/ppt.jpg" alt="Avatar">
+        </div>
+        <div class="col-md-9 col-lg-9">
+          <h1>Piedra Papel o Tijera</h1>
+          <p class="title">Juega contra la máquina</p>
+          <p>UTN FRA </p>
+          <div class="divIcons">
+            <a href="#"><i class="fa fa-dribbble icons"></i></a>
+            <a href="#"><i class="fa fa-twitter icons"></i></a>
+            <a href="#"><i class="fa fa-linkedin icons"></i></a>
+            <a href="#"><i class="fa fa-facebook icons"></i></a>
+          </div>
+          <p>
+            <button class="btn btn-primary buttonMenuGame" (click)="Juego('PPT')">Jugar</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-lg-3">
+          <img src="./assets/imagenes/adivina.png" alt="Avatar">
+        </div>
+        <div class="col-md-9 col-lg-9">
+          <h1>Adivina el número secreto</h1>
+          <p class="title">Juega de estrategia</p>
+          <p>UTN FRA </p>
+          <div class="divIcons">
+            <a href="#"><i class="fa fa-dribbble icons"></i></a>
+            <a href="#"><i class="fa fa-twitter icons"></i></a>
+            <a href="#"><i class="fa fa-linkedin icons"></i></a>
+            <a href="#"><i class="fa fa-facebook icons"></i></a>
+          </div>
+          <p>
+            <button class="btn btn-primary buttonMenuGame" (click)="Juego('Adivina')">Jugar</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
