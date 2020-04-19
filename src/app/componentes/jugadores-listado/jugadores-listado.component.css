@@ -1,0 +1,12 @@
+.listPlayerContainer{
+    background-color: rgb(115, 248, 115);
+    font-weight: bold;
+    font-size: medium;
+}
+
+.listResultContainer{
+    margin-top: 50px;
+    background-color: rgb(159, 252, 171);
+    font-weight: bold;
+    font-size: medium;
+}
