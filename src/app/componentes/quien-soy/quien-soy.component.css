@@ -5,25 +5,29 @@
 body {
     font: 20px Montserrat, sans-serif;
     line-height: 1.8;
-    color: #f5f6f7;
+    color: lightgoldenrodyellow
 }
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .bg-1 { 
     background-color: #1abc9c; /* Green */
-    color: #ffffff;
+    color:lightgoldenrodyellow
 }
 .bg-2 { 
     background-color: #474e5d; /* Dark Blue */
-    color: #ffffff;
+    color: lightgoldenrodyellow
 }
 .bg-3 { 
     background-color: #ffffff; /* White */
     color: #555555;
 }
 .bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
+    background-color: #350149; /* Black Gray */
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    margin-top: 120px;
+
 }
 .container-fluid {
     padding-top: 70px;
@@ -33,11 +37,42 @@ p {font-size: 16px;}
     padding-top: 15px;
     padding-bottom: 15px;
     border: 0;
-    border-radius: 0;
     margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
+    font-size: 18px;
 }
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
+}
+
+.whoNavContainer{
+    background-color: rgb(248, 248, 169);
+    font-weight: bold;
+    font-size: large;
+    width: -webkit-fill-available;
+}
+
+.whoContainer{
+    margin-top: 50px;
+    background-color: rgb(16, 161, 209);
+    font-weight: bold;
+    font-size: large;
+    color: white;
+}
+
+.titleWho{
+    font-weight: bold;
+    font-size: large;
+    color: black;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.whereWork{
+    background-color: rgb(174, 252, 213);
+    font-weight: bold;
+    font-size: large;
+    color: black;
+    margin-top: 50px;
+    padding: 20px;
 }
