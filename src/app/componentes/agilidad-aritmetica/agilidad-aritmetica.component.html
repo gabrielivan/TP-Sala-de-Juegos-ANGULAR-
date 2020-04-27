@@ -2,18 +2,17 @@
 
 <div class="container agilityContainer">
   <h3>
-    Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="Ingrese numero" name="numeroIngresado"
-      type="text" class="form-control agilityInput" readonly />
+    Primer número: <input [(ngModel)]="nuevoJuego.primerNumero" type="text" class="form-control agilityInput"
+      readonly />
 
   </h3>
   <h3>
-    Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="Ingrese numero" name="numeroIngresado"
-      type="text" class="form-control agilityInput" readonly />
+    Operador: <input [(ngModel)]="nuevoJuego.operador" type="text" class="form-control agilityInput" readonly />
 
   </h3>
   <h3>
-    Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="Ingrese numero" name="numeroIngresado"
-      type="text" class="form-control agilityInput" readonly />
+    Segundo número: <input [(ngModel)]="nuevoJuego.segundoNumero" type="text" class="form-control agilityInput"
+      readonly />
 
   </h3>
   <h3>
@@ -22,19 +21,25 @@
 
   </h3>
   <h3>
-    <h2 [hidden]="ocultarVerificar"><button (click)="verificar()" class="btn btn-success btn-lg buttonAgility">Verificar {{Tiempo}}
+    <h2 [hidden]="ocultarVerificar"><button (click)="verificar()" class="btn btn-success btn-lg buttonAgility">Verificar
+        {{Tiempo}}
       </button></h2>
   </h3>
   <h3>
-    <h2 [hidden]="!ocultarVerificar"><button (click)="NuevoJuego()" class="btn btn-primary btn-lg buttonAgility">Nuevo</button></h2>
+    <h2 [hidden]="!ocultarVerificar"><button (click)="NuevoJuego()"
+        class="btn btn-primary btn-lg buttonAgility">Nuevo</button></h2>
   </h3>
   <h3>
-    <h2>
-      <p><i class="fa fa-spinner fa-spin"></i> Esperando numero...</p>
-    </h2>
+    <div *ngIf="!ocultarVerificar">
+      <h2>
+        <p><i class="fa fa-spinner fa-spin"></i> Esperando numero...</p>
+      </h2>
+    </div>
 
-    <h3 [hidden]="!nuevoJuego.gano">Usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">Usted aún no gano </h3>
+    <div *ngIf='jugo'>
+      <h3 [hidden]="!nuevoJuego.gano">Usted acerto el resultado que es: {{nuevoJuego.resultado}}</h3>
+      <h3 [hidden]="nuevoJuego.gano">Usted no acerto el resultado, el resultado correcto es: {{nuevoJuego.resultado}}</h3>
+    </div>
   </h3>
 
 </div>

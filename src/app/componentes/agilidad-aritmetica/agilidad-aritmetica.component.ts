@@ -1,7 +1,8 @@
-import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
-import {Subscription} from "rxjs";
+import { Subscription } from "rxjs";
+import { Jugador } from '../../clases/jugador';
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -9,43 +10,53 @@ import {Subscription} from "rxjs";
   styleUrls: ['./agilidad-aritmetica.component.css']
 })
 export class AgilidadAritmeticaComponent implements OnInit {
-   @Output() 
-  enviarJuego :EventEmitter<any>= new EventEmitter<any>();
-  nuevoJuego : JuegoAgilidad;
+  @Input() jugador: Jugador;
+  @Output()
+  enviarJuego: EventEmitter<any> = new EventEmitter<any>();
+  nuevoJuego: JuegoAgilidad;
   ocultarVerificar: boolean;
   Tiempo: number;
-  repetidor:any;
+  repetidor: any;
+  contador: number;
+  jugo: Boolean;
   private subscription: Subscription;
   ngOnInit() {
   }
-   constructor() {
-     this.ocultarVerificar=true;
-     this.Tiempo=5; 
+  constructor() {
+    this.ocultarVerificar = true;
+    this.Tiempo = 30;
     this.nuevoJuego = new JuegoAgilidad();
-    console.info("Inicio agilidad");  
+    // this.nuevoJuego.jugador = this.jugador.nombre;
+    console.info("Inicio agilidad");
   }
   NuevoJuego() {
-    this.ocultarVerificar=false;
-   this.repetidor = setInterval(()=>{ 
-      
+    this.jugo = false;
+    this.nuevoJuego.generar();
+    this.ocultarVerificar = false;
+    this.repetidor = setInterval(() => {
+
       this.Tiempo--;
-      console.log("llego", this.Tiempo);
-      if(this.Tiempo==0 ) {
-        clearInterval(this.repetidor);
+      if (this.Tiempo == 0) {
         this.verificar();
-        this.ocultarVerificar=true;
-        this.Tiempo=5;
+        clearInterval(this.repetidor);
+        this.Tiempo = 5;
       }
-      }, 900);
+    }, 900);
 
   }
-  verificar()
-  {
-    this.ocultarVerificar=false;
-    clearInterval(this.repetidor);
-   
+  verificar() {
+    this.jugo = true;
+    if (this.nuevoJuego.verificar()) {
+      this.enviarJuego.emit(this.nuevoJuego);
+      this.ocultarVerificar = true;
+    }
+    else {
+      this.enviarJuego.emit(this.nuevoJuego);
+      this.ocultarVerificar = true;
+    }
 
-   
-  }  
+    console.info("Resultado:", this.nuevoJuego.resultado);
+    clearInterval(this.repetidor);
+  }
 
 }
