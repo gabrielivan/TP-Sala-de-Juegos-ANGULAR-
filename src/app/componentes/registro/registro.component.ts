@@ -21,6 +21,7 @@ export class RegistroComponent implements OnInit {
   });*/
 
   jugador:Jugador = new Jugador();
+  clave: string;
 
   constructor(public firebaseServiceService:FirebaseServiceService) { }
 
@@ -28,7 +29,7 @@ export class RegistroComponent implements OnInit {
   }
 
   register(){
-    this.firebaseServiceService.AddUser(this.jugador);
+    this.firebaseServiceService.AddUser(this.jugador.email,this.clave, this.jugador.nombre);
   }
 
 }

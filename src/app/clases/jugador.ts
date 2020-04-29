@@ -4,5 +4,5 @@ export class Jugador {
     jugados: number;
     ganados: number;
     perdidos: number;
-    clave: string;
+    uid :string;
 }

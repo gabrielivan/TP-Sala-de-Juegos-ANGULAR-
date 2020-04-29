@@ -64,6 +64,12 @@ import {firebaseConfig} from '../environments/environment';
     // Initialize Cloud Firestore through Firebase
     firebase.initializeApp(firebaseConfig);
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +103,10 @@ import {firebaseConfig} from '../environments/environment';
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
 
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
