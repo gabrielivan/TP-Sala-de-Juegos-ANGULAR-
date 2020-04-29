@@ -7,23 +7,6 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-    padding: 14px 20px;
-    background-color: #f44336;
-}
-
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn,.signupbtn {float:left;width:50%}
 
@@ -52,7 +35,11 @@ button {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 98%; /* Could be more or less, depending on screen size */
+    width: 60%;
+    background: lightslategrey;
+    color: white;
+    font-size: larger;
+    padding: 20px;
 }
 
 /* The Close Button (x) */
@@ -83,4 +70,27 @@ button {
     .cancelbtn, .signupbtn {
        width: 100%;
     }
+}
+
+.termsAndConditions{
+    background-color: dimgray;
+    padding: 20px;
+    color: white;
+    font-size: large;
+}
+
+.accept{
+    background-color: lightgrey;
+    font-size: large;
+    font-weight: 700;
+}
+
+.buttonAcceptNotAccept{
+    margin-left: 10px;
+    width: 15%;
+    font-size: inherit;
+}
+
+.inputFont{
+    color: black;
 }
