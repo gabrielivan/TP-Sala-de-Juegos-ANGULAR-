@@ -46,9 +46,18 @@ export class FirebaseServiceService {
   }
 
   login(email, password) {
+    var dbRef = this.db;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function (credential) {
         console.log(credential);
+        dbRef.collection("jugadores")
+        .where("uid", "==", credential.user.uid)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+              console.log(doc.data());
+          });
+      });
       })
       .catch(function (error) {
         // Handle Errors here.

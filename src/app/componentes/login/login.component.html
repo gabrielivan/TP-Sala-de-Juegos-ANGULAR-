@@ -21,16 +21,16 @@
       </div>
       <div class="row">
         <div class="col-md-9 col-lg-9">
-          <button class="btn btn-success signIn" *ngIf="logeando" (click)="MoverBarraDeProgreso()">Ingresar</button>
+          <button class="btn btn-success signIn"  (click)="login()">Ingresar</button>
         </div>
       </div>
 
-      <div *ngIf="!logeando" class="progress">
+      <!-- <div *ngIf="!logeando" class="progress">
         <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar"
           aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width]="ProgresoDeAncho">
           {{progresoMensaje}} - {{progreso}}%
         </div>
-      </div>
+      </div> -->
 
       <input type="checkbox" checked="checked"> Recordar mis datos
     </div>
