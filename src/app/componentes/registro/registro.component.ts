@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 //para poder hacer las validaciones
 //import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+
+import { Jugador } from '../../clases/jugador';
+
+import {FirebaseServiceService} from '../../servicios/firebase-service.service';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -14,9 +19,16 @@ export class RegistroComponent implements OnInit {
   formRegistro:FormGroup=this.miConstructor.group({
     usuario:this.email
   });*/
-  constructor( ) { }
+
+  jugador:Jugador = new Jugador();
+
+  constructor(public firebaseServiceService:FirebaseServiceService) { }
 
   ngOnInit() {
+  }
+
+  register(){
+    this.firebaseServiceService.AddUser(this.jugador);
   }
 
 }

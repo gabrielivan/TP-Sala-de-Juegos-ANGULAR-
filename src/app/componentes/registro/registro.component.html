@@ -27,10 +27,10 @@
   <form class="modal-content animate">
     <div class="container">
       <label><b>Email</b></label>
-      <input class="inputFont" type="text" placeholder="Ingrese su correo" name="email" required>
+      <input class="inputFont" type="text" placeholder="Ingrese su correo" name="email" [(ngModel)]="jugador.email" required>
 
       <label><b>Clave</b></label>
-      <input class="inputFont" type="password" placeholder="Ingrese una clave" name="psw" required>
+      <input class="inputFont" type="password" placeholder="Ingrese una clave" name="psw" [(ngModel)]="jugador.clave" required>
 
       <label><b>Repita la clave</b></label>
       <input class="inputFont" type="password" placeholder="Aqui repita la misma clave" name="psw-repeat" required>
@@ -42,7 +42,7 @@
         <button type="button" onclick="document.getElementById('id01').style.display='none'"
           class="btn btn-danger buttonAcceptNotAccept">Cancelar
         </button>
-        <button type="submit" class="btn btn-primary buttonAcceptNotAccept">Registrarme</button>
+        <button type="submit" class="btn btn-primary buttonAcceptNotAccept" (click)="register()">Registrarme</button>
       </div>
     </div>
   </form>
