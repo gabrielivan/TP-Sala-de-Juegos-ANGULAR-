@@ -1,43 +1,11 @@
 
 form {
-    border: 10px solid #f1f1f1;
     padding: 10px;
-    background:gray;
-}
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #4CAF50;
+    background:rgb(77, 76, 76);
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+    font-size: large;
 }
 
-button:hover {
-    opacity: 0.8;
-}
-
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-.aceptbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #3664F4;
-}
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
@@ -66,4 +34,42 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+}
+
+.login{
+    background-color: black;
+    margin-top: 5%;
+}
+
+.userInput{
+    color: black;
+    width: 90%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.passInput{
+    color: black;
+    width: 90%;
+    margin-left: 28px;
+    margin-bottom: 10px;
+}
+
+.signIn{
+    margin-left: 47%;
+    margin-top: 25px;
+    width: 35%;
+    font-size: inherit;
+}
+
+.bottomContainer{
+    background-color: lightgray;
+    width: 100%;
+    color: black;
+    font-size: medium;
+}
+
+.buttonAcceptNotAccept{
+    width: 12%;
+    margin-left: 10px;
 }
