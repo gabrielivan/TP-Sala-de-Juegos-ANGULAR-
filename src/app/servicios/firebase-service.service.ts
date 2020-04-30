@@ -7,6 +7,7 @@ import "firebase/auth";
 import "firebase/firestore";
 
 import { Jugador } from '../clases/jugador';
+import { switchAll } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -29,15 +30,18 @@ export class FirebaseServiceService {
         })
           .then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
+            alert("Se registro correctamente");
           })
           .catch(function (error) {
             console.error("Error adding document: ", error);
+            alert("Ocurrio un error al registrarse");
           });
       })
       .catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
+        alert("Ocurrio un error al registrarse");
         // ...
       });
 
@@ -56,6 +60,7 @@ export class FirebaseServiceService {
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
               console.log(doc.data());
+              alert("Se logio correctamente");
           });
       });
       })
@@ -63,6 +68,7 @@ export class FirebaseServiceService {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
+        alert("Ocurrio un error al logiarse");
         // ...
       });
   }
