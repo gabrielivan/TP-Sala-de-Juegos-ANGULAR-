@@ -1,0 +1,16 @@
+td{
+    border: 5px solid blue;
+    width: 5em;
+    height: 5em;
+}
+ .btnOpcionLetra{
+    padding: 20px;
+    margin: 10px;
+ }
+
+ .message{
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+    margin: 26%;
+ }
