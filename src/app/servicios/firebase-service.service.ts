@@ -9,17 +9,20 @@ import "firebase/firestore";
 import { Jugador } from '../clases/jugador';
 import { switchAll } from 'rxjs/operators';
 
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseServiceService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   db = firebase.firestore();
 
   AddUser(email, clave, nombre) {
     var dbRef = this.db;
+    var router = this.router;
     firebase.auth().createUserWithEmailAndPassword(email, clave)
       .then(function (credential) {
         console.log(credential.user.uid);//este dato lo debe tener el jugador para relacionarse con el registro de auth
@@ -31,6 +34,12 @@ export class FirebaseServiceService {
           .then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
             alert("Se registro correctamente");
+            credential.user.getIdToken()
+            .then(function (token) {
+              localStorage.setItem('token', token);
+              router.navigate(['/']);
+            });
+  
           })
           .catch(function (error) {
             console.error("Error adding document: ", error);
@@ -50,6 +59,7 @@ export class FirebaseServiceService {
   }
 
   login(email, password) {
+    var router = this.router;
     var dbRef = this.db;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function (credential) {
@@ -61,6 +71,12 @@ export class FirebaseServiceService {
           querySnapshot.forEach((doc) => {
               console.log(doc.data());
               alert("Se logio correctamente");
+              credential.user.getIdToken()
+              .then(function (token) {
+                localStorage.setItem('token', token);
+                router.navigate(['/']);
+              });
+    
           });
       });
       })
@@ -72,6 +88,20 @@ export class FirebaseServiceService {
         // ...
       });
   }
+
+  isAuthenticated() {
+    return localStorage.getItem("token");
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  } 
+
 
 
 }

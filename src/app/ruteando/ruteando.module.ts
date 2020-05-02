@@ -21,23 +21,25 @@ import { QuienSoyComponent } from '../componentes/quien-soy/quien-soy.component'
 import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/listado-de-paises.component'
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
-
+import {AuthGuard} from '../helpers/auth.guard';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
-{path: 'Jugadores' , component: JugadoresListadoComponent},
-{path: '' , component: PrincipalComponent},
+{path: 'Jugadores' , component: JugadoresListadoComponent, canActivate: [AuthGuard]},
+{path: '' , component: PrincipalComponent, canActivate: [AuthGuard]},
 {path: 'Login' , component: LoginComponent},
-{path: 'Mapa' , component: MapaDeGoogleComponent},
-{path: 'QuienSoy' , component: QuienSoyComponent},
+{path: 'Mapa' , component: MapaDeGoogleComponent, canActivate: [AuthGuard]},
+{path: 'QuienSoy' , component: QuienSoyComponent, canActivate: [AuthGuard]},
 {path: 'Registro' , component: RegistroComponent},
-{path: 'Principal' , component: PrincipalComponent},
-{path: 'Listado' , component: ListadoComponent},
-{path: 'Paises' , component: ListadoDePaisesComponent},
+{path: 'Principal' , component: PrincipalComponent, canActivate: [AuthGuard]},
+{path: 'Listado' , component: ListadoComponent, canActivate: [AuthGuard]},
+{path: 'Paises' , component: ListadoDePaisesComponent, canActivate: [AuthGuard]},
 
 { path: 'Juegos' ,
-component: JuegosComponent ,
-children:
+component: JuegosComponent 
+, canActivate: [AuthGuard]
+, canActivateChild: [AuthGuard]
+, children:
      [{path: '' , component: MenuCardComponent},
      {path: 'Adivina' , component: AdivinaElNumeroComponent},
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
