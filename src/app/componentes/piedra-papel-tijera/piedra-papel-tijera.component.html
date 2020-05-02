@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<div class="row custom-row">
+    <div class="col-4" style="text-align: center" *ngFor="let opcion of opciones">
+        <a (click)="elegir(opcion)">
+            <img [ngClass]="{'imagen-selecionada': estaSeleccionada(opcion), 'imagen-seleccionable': !estaSeleccionada(opcion)}"
+                src="{{opcion.src}}">
+        </a>
+    </div>
+</div>
+<div class="row custom-row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <button type="button" class="btn btn-primary" *ngIf="!gameOver; else reiniciar" style="width: 100%" (click)="jugar()">Jugar</button>
+        <ng-template #reiniciar>
+            <button type="button" class="btn btn-primary" style="width: 100%" (click)="ngOnInit()">Reiniciar</button>
+        </ng-template>
+    </div>
+</div>
+
+<ngb-alert class="alert" *ngIf="gameOver" [type]="alert.type">{{ alert.message }}</ngb-alert>
+
+
+<div *ngIf="eleccion && eleccionMaquina" class="row custom-row">
+    <div class="col-2"></div>
+    <div class="col-3" style="text-align: center">
+        <img [ngClass]="{'imagen-ganadora': resultado == 1, 'imagen-perdedora': resultado == 0}" src="{{eleccion.src}}">
+    </div>
+    <div class="col-2" style="text-align: center">
+        <h1>{{playerWins}} - {{cpuWins}}</h1>
+        <h4 style="margin-top: 5em">{{getResultadoStr()}}</h4>
+    </div>
+    <div class="col-3" style="text-align: center">
+        <img [ngClass]="{'imagen-ganadora': resultado == 0, 'imagen-perdedora': resultado == 1}"
+            src="{{eleccionMaquina.src}}">
+    </div>
+
+</div>

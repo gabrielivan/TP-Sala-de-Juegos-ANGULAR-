@@ -67,6 +67,7 @@ import {firebaseConfig} from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 
 
 
@@ -94,7 +95,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    PiedraPapelTijeraComponent
   ],
   imports: [
     BrowserModule,

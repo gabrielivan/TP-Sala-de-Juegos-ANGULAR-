@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 })
 export class FirebaseServiceService {
 
+  user = null;
+
   constructor(private router: Router) { }
 
   db = firebase.firestore();
@@ -35,11 +37,11 @@ export class FirebaseServiceService {
             console.log("Document written with ID: ", docRef.id);
             alert("Se registro correctamente");
             credential.user.getIdToken()
-            .then(function (token) {
-              localStorage.setItem('token', token);
-              router.navigate(['/']);
-            });
-  
+              .then(function (token) {
+                localStorage.setItem('token', token);
+                router.navigate(['/']);
+              });
+
           })
           .catch(function (error) {
             console.error("Error adding document: ", error);
@@ -65,20 +67,20 @@ export class FirebaseServiceService {
       .then(function (credential) {
         console.log(credential);
         dbRef.collection("jugadores")
-        .where("uid", "==", credential.user.uid)
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
+          .where("uid", "==", credential.user.uid)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
               console.log(doc.data());
               alert("Se logio correctamente");
               credential.user.getIdToken()
-              .then(function (token) {
-                localStorage.setItem('token', token);
-                router.navigate(['/']);
-              });
-    
+                .then(function (token) {
+                  localStorage.setItem('token', token);
+                  router.navigate(['/']);
+                });
+
+            });
           });
-      });
       })
       .catch(function (error) {
         // Handle Errors here.
@@ -95,13 +97,46 @@ export class FirebaseServiceService {
 
   logout() {
     localStorage.removeItem('token');
-    firebase.auth().signOut().then(function() {
+    firebase.auth().signOut().then(function () {
       // Sign-out successful.
-    }).catch(function(error) {
+    }).catch(function (error) {
       // An error happened.
     });
-  } 
+  }
 
+  async saveResult(juego, gano) {
+    await this.getCurrentUser();
+    var db = firebase.firestore();
+    let resultados = db.collection('resultados')
+    let activeRef = await resultados
+      .where('usuarioId', '==', this.user.uid)
+      .where('juego', '==', juego)
+      .get();
 
+    if (activeRef.empty) {
+      //add
+      db.collection("resultados").add({
+        usuarioId: this.user.uid,
+        juego: juego,
+        victorias: gano ? 1 : 0,
+        derrotas: gano ? 0 : 1
+      });
+    }
+    else {
+      //update
+      activeRef.docs.forEach(function (doc) {
+        let victorias = doc.data().victorias + (gano ? 1 : 0);
+        let derrotas = doc.data().derrotas + (gano ? 0 : 1);
+        db.collection("resultados").doc(doc.id)
+          .update({ victorias: victorias, derrotas: derrotas });
+      });
+    }
+  }
+
+  async getCurrentUser() {
+    firebase.auth().onAuthStateChanged(async user => {
+      this.user = user;
+    });
+  }
 
 }
