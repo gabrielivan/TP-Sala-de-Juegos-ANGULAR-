@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JugadoresService } from '../../servicios/jugadores.service';
+import { FirebaseServiceService } from '../../servicios/firebase-service.service';
 @Component({
   selector: 'app-jugadores-listado',
   templateUrl: './jugadores-listado.component.html',
@@ -10,7 +11,7 @@ export class JugadoresListadoComponent implements OnInit {
   listado:any
   miJugadoresServicio:JugadoresService
   
-    constructor(serviceJugadores:JugadoresService) {
+    constructor(private firebaseService: FirebaseServiceService ,serviceJugadores:JugadoresService) {
       this.miJugadoresServicio = serviceJugadores;
       
     }
@@ -18,16 +19,15 @@ export class JugadoresListadoComponent implements OnInit {
 
 
   ngOnInit() {
+    this.TraerTodos();
   }
 
 
-  TraerTodos(){
-    //alert("totos");
-    this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
-
-    })
+  async TraerTodos(){
+    var querySnapshot  = await this.firebaseService.getUsers();
+     this.listado = querySnapshot.docs.map(function(x){
+        return x.data();
+      });    
   }
   TraerGanadores(){
     this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
