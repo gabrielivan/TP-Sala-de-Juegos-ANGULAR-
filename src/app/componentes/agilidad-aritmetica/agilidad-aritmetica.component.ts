@@ -3,6 +3,7 @@ import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
 import { Subscription } from "rxjs";
 import { Jugador } from '../../clases/jugador';
+import { FirebaseServiceService } from '../../servicios/firebase-service.service';
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -22,10 +23,10 @@ export class AgilidadAritmeticaComponent implements OnInit {
   private subscription: Subscription;
   ngOnInit() {
   }
-  constructor() {
+  constructor(private firebaseService: FirebaseServiceService) {
     this.ocultarVerificar = true;
     this.Tiempo = 30;
-    this.nuevoJuego = new JuegoAgilidad();
+    this.nuevoJuego = new JuegoAgilidad(firebaseService);
     // this.nuevoJuego.jugador = this.jugador.nombre;
     console.info("Inicio agilidad");
   }

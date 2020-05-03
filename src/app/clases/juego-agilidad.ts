@@ -1,4 +1,5 @@
 import { Juego } from '../clases/juego';
+import { FirebaseServiceService } from '../servicios/firebase-service.service';
 
 export class JuegoAgilidad extends Juego {
     numeroIngresado: number = 0;
@@ -7,7 +8,7 @@ export class JuegoAgilidad extends Juego {
     segundoNumero: number = 0;
     resultado: number = 0;
 
-    constructor(nombre?: string, gano?: boolean, jugador?: string) {
+    constructor(private firebaseService: FirebaseServiceService, nombre?: string, gano?: boolean, jugador?: string) {
         super("Agilidad con aritmetica", gano, jugador);
     }
 
@@ -15,11 +16,13 @@ export class JuegoAgilidad extends Juego {
         if (this.numeroIngresado == this.resultado) {
             this.gano = true;
         }
-
+        
         if (this.gano) {
+            this.firebaseService.saveResult('AGILIDAD-ARISMETICA', true);
             return true;
         }
         else {
+            this.firebaseService.saveResult('AGILIDAD-ARISMETICA', false);
             return false;
         }
     }

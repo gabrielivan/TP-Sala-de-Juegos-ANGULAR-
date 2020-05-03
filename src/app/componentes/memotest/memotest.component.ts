@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseServiceService } from '../../servicios/firebase-service.service';
 
 @Component({
   selector: 'app-memotest',
@@ -30,7 +31,7 @@ export class MemotestComponent implements OnInit {
 
   pares = [];
 
-  constructor() { }
+  constructor(private firebaseService: FirebaseServiceService) { }
 
   ngOnInit() {
     this.iniciarGrilla();
@@ -84,6 +85,7 @@ export class MemotestComponent implements OnInit {
       }
 
       alert('GANASTE!');
+      this.firebaseService.saveResult('MEMOTEST', true);
 
     }
   }

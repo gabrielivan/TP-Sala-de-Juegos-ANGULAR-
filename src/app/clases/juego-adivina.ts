@@ -1,9 +1,10 @@
 import { Juego } from '../clases/juego'
+import { FirebaseServiceService } from '../servicios/firebase-service.service';
 
 export class JuegoAdivina extends  Juego {
     numeroSecreto: number = 0;
     numeroIngresado = 0;
-    constructor(nombre?: string, gano?: boolean, jugador?:string) {
+    constructor(private firebaseService: FirebaseServiceService, nombre?: string, gano?: boolean, jugador?:string) {
         super("Adivina el número",gano,jugador);
      
     
@@ -14,8 +15,10 @@ export class JuegoAdivina extends  Juego {
           this.gano = true;
         }
         if (this.gano) {
+          this.firebaseService.saveResult('ADIVINA', true);
           return true;
         } else {
+          this.firebaseService.saveResult('ADIVINA', false);
           return false;
         }
      }
