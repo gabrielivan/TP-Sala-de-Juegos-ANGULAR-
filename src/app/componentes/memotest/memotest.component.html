@@ -1,0 +1,18 @@
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<table>
+    <tr *ngFor="let fila of grilla">
+        <td *ngFor="let columna of fila" (click)="elegirCelda(columna)">
+            
+            <i class="fa fa-heart icon" *ngIf="columna.iconSrc == 'heart' && columna.seleccionada"></i>
+            <i class="fa fa-car icon" *ngIf="columna.iconSrc == 'car' && columna.seleccionada"></i>
+            <i class="fa fa-apple icon" *ngIf="columna.iconSrc == 'apple' && columna.seleccionada"></i>
+            <i class="fa fa-bell icon" *ngIf="columna.iconSrc == 'bell' && columna.seleccionada"></i>
+            <i class="fa fa-bicycle icon" *ngIf="columna.iconSrc == 'bicycle' && columna.seleccionada"></i>
+            <i class="fa fa-bomb icon" *ngIf="columna.iconSrc == 'bomb' && columna.seleccionada"></i>
+            <i class="fa fa-bolt icon" *ngIf="columna.iconSrc == 'bolt' && columna.seleccionada"></i>
+            <i class="fa fa-book icon" *ngIf="columna.iconSrc == 'book' && columna.seleccionada"></i>
+            <i class="fa fa-circle icon"  *ngIf="!columna.seleccionada"></i>
+            
+        </td>
+    </tr>
+</table>

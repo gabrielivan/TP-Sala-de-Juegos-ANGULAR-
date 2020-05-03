@@ -68,6 +68,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { MemotestComponent } from './componentes/memotest/memotest.component';
 
 
 
@@ -96,7 +97,8 @@ import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/pi
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    PiedraPapelTijeraComponent
+    PiedraPapelTijeraComponent,
+    MemotestComponent
   ],
   imports: [
     BrowserModule,

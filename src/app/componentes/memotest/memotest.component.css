@@ -1,0 +1,22 @@
+table{
+    border: 20px solid  rgb(31, 21, 161);
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+td{
+border:  3px solid black;
+width: 5em;
+height: 5em;
+padding: 5px;
+}
+
+.icon{
+    font-size: 5em;
+}
+
+.iconCircle{
+    font-size: 5em;
+    color: rgb(31, 21, 161);
+}
