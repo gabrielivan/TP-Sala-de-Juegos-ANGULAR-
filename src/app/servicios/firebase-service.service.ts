@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import * as firebase from "firebase/app";
+import { firebaseConfig } from "../../environments/environment";
 
 // Add the Firebase products that you want to use
 import "firebase/auth";
@@ -137,6 +138,22 @@ export class FirebaseServiceService {
     firebase.auth().onAuthStateChanged(async user => {
       this.user = user;
     });
+  }
+
+  async getUsers() {
+    // return await db.collection("usuarios").get();
+    let usrsRef = await this.db.collection('jugadores').get();
+    return usrsRef;
+    // for(let u of usrsRef.docs) {
+    //     console.log(u.id, u.data())
+    // } 
+  }
+
+  async getResultados() {
+    // return await db.collection("usuarios").get();
+    let resultados = await this.db.collection('resultados').get();
+    return resultados;
+
   }
 
 }
