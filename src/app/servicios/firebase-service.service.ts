@@ -23,7 +23,7 @@ export class FirebaseServiceService {
 
   db = firebase.firestore();
 
-  AddUser(email, clave, nombre) {
+  AddUser(email, clave, nombre, edad, sexo) {
     var dbRef = this.db;
     var router = this.router;
     firebase.auth().createUserWithEmailAndPassword(email, clave)
@@ -32,7 +32,9 @@ export class FirebaseServiceService {
         dbRef.collection("jugadores").add({
           email: email,
           uid: credential.user.uid,
-          nombre: nombre
+          nombre: nombre,
+          edad: edad,
+          sexo: sexo
         })
           .then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);

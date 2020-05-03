@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit {
   }
 
   register(){
-    this.firebaseServiceService.AddUser(this.jugador.email,this.clave, this.jugador.nombre);
+    this.firebaseServiceService.AddUser(this.jugador.email,this.clave, this.jugador.nombre, this.jugador.edad, this.jugador.sexo);
   }
 
 }
