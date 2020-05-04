@@ -1,0 +1,35 @@
+.fila{
+    border-top: 5px solid black;
+}
+
+.columna{
+border-left: 5px solid black;
+
+}
+
+td{
+    width: 10em;
+    height: 10em;
+}
+
+.tabla{
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.icon-times{
+    font-size: 10em;
+    color: rgb(205, 229, 70);
+}
+.icon-circle{
+    font-size: 10em;
+    color: rgb(223, 81, 81);
+}
+
+.message{
+   color: white;
+   font-size: x-large;
+   font-weight: bold;
+   margin: 26%;
+}

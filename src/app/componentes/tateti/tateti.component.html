@@ -1,0 +1,10 @@
+<ngb-alert class="message" *ngIf="gameOver" [type]="alert.type" [dismissible]="true" (close)="ngOnInit()">{{ alert.message }}</ngb-alert>
+<table class="tabla">
+    <tr *ngFor="let fila of grilla; let i = index" [attr.data-index]="i" [ngClass]="{'fila': i > 0}">
+        <td *ngFor="let columna of fila; let j = index" [attr.data-index]="j" [ngClass]="{'columna': j > 0}"
+            (click)="elegirCelda(i,j)">
+            <i class="fa fa-close icon-times" *ngIf="grilla[i][j] == 1"></i>
+            <i class="fa fa-circle icon-circle" *ngIf="grilla[i][j] == 0"></i>
+        </td>
+    </tr>
+</table>
