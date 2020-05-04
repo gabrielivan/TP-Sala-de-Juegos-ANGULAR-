@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseServiceService } from '../../servicios/firebase-service.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-memotest',
@@ -10,23 +11,23 @@ export class MemotestComponent implements OnInit {
 
   grilla = [[]];
 
-  elementos = [    
-      { iconSrc: 'heart', seleccionada: false },
-      { iconSrc: 'car', seleccionada: false },
-      { iconSrc: 'book', seleccionada: false },  
-      { iconSrc: 'apple', seleccionada: false },
-      { iconSrc: 'bell', seleccionada: false },
-      { iconSrc: 'bicycle', seleccionada: false },   
-      { iconSrc: 'bomb', seleccionada: false },   
-      { iconSrc: 'bolt', seleccionada: false },   
-      { iconSrc: 'heart', seleccionada: false },
-      { iconSrc: 'car', seleccionada: false },
-      { iconSrc: 'book', seleccionada: false },
-      { iconSrc: 'apple', seleccionada: false },
-      { iconSrc: 'bell', seleccionada: false },
-      { iconSrc: 'bicycle', seleccionada: false },    
-      { iconSrc: 'bomb', seleccionada: false },    
-      { iconSrc: 'bolt', seleccionada: false }    
+  elementos = [
+    { iconSrc: 'heart', seleccionada: false },
+    { iconSrc: 'car', seleccionada: false },
+    { iconSrc: 'book', seleccionada: false },
+    { iconSrc: 'apple', seleccionada: false },
+    { iconSrc: 'bell', seleccionada: false },
+    { iconSrc: 'bicycle', seleccionada: false },
+    { iconSrc: 'bomb', seleccionada: false },
+    { iconSrc: 'bolt', seleccionada: false },
+    { iconSrc: 'heart', seleccionada: false },
+    { iconSrc: 'car', seleccionada: false },
+    { iconSrc: 'book', seleccionada: false },
+    { iconSrc: 'apple', seleccionada: false },
+    { iconSrc: 'bell', seleccionada: false },
+    { iconSrc: 'bicycle', seleccionada: false },
+    { iconSrc: 'bomb', seleccionada: false },
+    { iconSrc: 'bolt', seleccionada: false }
   ];
 
   pares = [];
@@ -38,18 +39,18 @@ export class MemotestComponent implements OnInit {
   }
 
   iniciarGrilla() {
-  //desordeno
-      this.elementos = this.elementos
-        .sort(function () { return Math.random() - 0.5 });
-        //inserto elementos
-        let count = 0;
-      for (let i = 0; i < 4; i++) { 
-        this.grilla[i] = [];      
-         for (let j = 0; j < 4; j++) {            
-            this.grilla[i][j] = this.elementos[count];
-            count++;
-         }        
-      } 
+    //desordeno
+    this.elementos = this.elementos
+      .sort(function () { return Math.random() - 0.5 });
+    //inserto elementos
+    let count = 0;
+    for (let i = 0; i < 4; i++) {
+      this.grilla[i] = [];
+      for (let j = 0; j < 4; j++) {
+        this.grilla[i][j] = this.elementos[count];
+        count++;
+      }
+    }
 
   }
 
@@ -84,7 +85,14 @@ export class MemotestComponent implements OnInit {
         }
       }
 
-      alert('GANASTE!');
+      swal.fire({
+        title: 'GANASTE!',
+        text: 'Bien hecho!',
+        timer: 2000,
+        showCancelButton: false,
+        showConfirmButton: false,
+        icon: "success"
+      });
       this.firebaseService.saveResult('MEMOTEST', true);
 
     }

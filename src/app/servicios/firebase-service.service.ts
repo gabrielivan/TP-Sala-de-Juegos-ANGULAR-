@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import swal from'sweetalert2';
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import * as firebase from "firebase/app";
 import { firebaseConfig } from "../../environments/environment";
@@ -38,7 +39,14 @@ export class FirebaseServiceService {
         })
           .then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
-            alert("Se registro correctamente");
+            swal.fire({
+              title: 'EXISTO.',
+              text: 'Se registro correctamente',
+              timer: 2000,
+              showCancelButton: false,
+              showConfirmButton: false,
+              icon: "success"
+            });
             credential.user.getIdToken()
               .then(function (token) {
                 localStorage.setItem('token', token);
@@ -48,14 +56,28 @@ export class FirebaseServiceService {
           })
           .catch(function (error) {
             console.error("Error adding document: ", error);
-            alert("Ocurrio un error al registrarse");
+            swal.fire({
+              title: 'ERROR.',
+              text: 'Ocurrio un error al registrarse',
+              timer: 2000,
+              showCancelButton: false,
+              showConfirmButton: false,
+              icon: "error"
+            });
           });
       })
       .catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        alert("Ocurrio un error al registrarse");
+        swal.fire({
+          title: 'ERROR.',
+          text: 'Ocurrio un error al registrarse',
+          timer: 2000,
+          showCancelButton: false,
+          showConfirmButton: false,
+          icon: "error"
+        });
         // ...
       });
 
@@ -75,7 +97,14 @@ export class FirebaseServiceService {
           .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
               console.log(doc.data());
-              alert("Se logio correctamente");
+              swal.fire({
+                title: 'EXISTO.',
+                text: 'Se logeo correctamente',
+                timer: 2000,
+                showCancelButton: false,
+                showConfirmButton: false,
+                icon: "success"
+              });
               credential.user.getIdToken()
                 .then(function (token) {
                   localStorage.setItem('token', token);
@@ -89,7 +118,14 @@ export class FirebaseServiceService {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        alert("Ocurrio un error al logiarse");
+        swal.fire({
+          title: 'ERROR.',
+          text: 'Ocurrio un error al logearse',
+          timer: 2000,
+          showCancelButton: false,
+          showConfirmButton: false,
+          icon: "error"
+        });
         // ...
       });
   }
